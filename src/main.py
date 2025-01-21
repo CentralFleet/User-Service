@@ -71,7 +71,7 @@ async def register_account(req : func.HttpRequest):
                 "CustomerID":customer_id,
             }
         elif response.status_code == 202:
-            query = f"Email:equals:{body.get("Email")}"
+            query = f"Email:equals:{body.get('Email')}"
             search_response = ZOHO_API.search_record(moduleName="Accounts",query=query,token=token)
             logger.info(search_response.json())
             if search_response.status_code == 200 or search_response.status_code == 201:
